@@ -25,10 +25,17 @@
         <input matInput type="date" name="expirationDate" [(ngModel)]="task.expitarionDate"/>
       </mat-form-field>
 
-      <button mat-raised-button  color="primary" type="submit">
+      <button mat-raised-button  color="primary" type="submit" *ngIf="!edit, else empty">
         Create
         <mat-icon>send</mat-icon>
       </button>
+
+      <ng-template #empty>
+        <button mat-raised-button  color="primary" type="submit" >
+          Update
+          <mat-icon>send</mat-icon>
+        </button>
+      </ng-template>
     </form>
   </div>
 </div>

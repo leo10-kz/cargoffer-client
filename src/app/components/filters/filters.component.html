@@ -12,18 +12,20 @@
   </form>
 </mat-card>
 <div *ngIf="taskSearch.length > 0; else empty">
-  <mat-card class="example-card" *ngFor="let task of taskSearch">
+  <mat-card class="example-card" *ngFor="let task of taskSearch; let i = index">
     <mat-card-header class="box">
         <mat-card-title>{{task.name}}</mat-card-title>
         <mat-card-subtitle>{{task.category}}</mat-card-subtitle>
         <span></span>
-        <button mat-icon-button matTooltip="Warn" color="warn" ><mat-icon>close</mat-icon></button>
+        <button mat-icon-button matTooltip="Warn" color="warn" (click)="onDeleteCard(task._id)" ><mat-icon>close</mat-icon></button>
     </mat-card-header>
     <mat-card-content>
       {{task.description}}
     </mat-card-content>
   </mat-card>
 </div>
+
 <ng-template #empty >
   <h3>Task not found</h3>
 </ng-template>
+

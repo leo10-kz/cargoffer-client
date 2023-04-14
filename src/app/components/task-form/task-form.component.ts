@@ -25,9 +25,8 @@ constructor(private taskServise: TaskService, private router: Router, private ac
   async ngOnInit() {
      this.params = this.activateRoute.snapshot.params;
 
-
     if (this.params) {
-      const taskId = await this.taskServise.getTask(this.params["id"]);
+      const taskId = await this.taskServise.getTask(this.params.id);
 
 
       this.task = {
@@ -63,7 +62,7 @@ constructor(private taskServise: TaskService, private router: Router, private ac
       this.router.navigate(['/'])
    } else {
     alert('Update Rejected');
-    
+
    }
   }
 
