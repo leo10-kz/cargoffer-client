@@ -11,8 +11,15 @@ export class TaskService {
 
   constructor() { }
 
-  async getTasks(): Promise<ITask[]> {
-     const response = await axios.get('/task');
+  async getTasks(name?: string | null): Promise<ITask[]> {
+
+    let response;
+
+    if (name) {
+      response = await axios.get(`/task?name=${name}`);
+    } else {
+      response = await axios.get(`/task`);
+    }
      return response.data.tasks;
   }
 

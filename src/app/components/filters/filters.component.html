@@ -1,12 +1,29 @@
+
 <mat-card class="card-container">
-  <form class="form-container">
+  <form class="form-container" (submit)="onSubmit()">
     <mat-form-field appearance="outline">
       <mat-label>Search...</mat-label>
-      <input matInput placeholder="......" />
+      <input matInput placeholder="......"  [formControl]="inputValue"/>
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
-    <button mat-raised-button color="accent" >
+    <button mat-raised-button color="accent" type="submit">
       search
     </button>
   </form>
 </mat-card>
+<div *ngIf="taskSearch.length > 0; else empty">
+  <mat-card class="example-card" *ngFor="let task of taskSearch">
+    <mat-card-header class="box">
+        <mat-card-title>{{task.name}}</mat-card-title>
+        <mat-card-subtitle>{{task.category}}</mat-card-subtitle>
+        <span></span>
+        <button mat-icon-button matTooltip="Warn" color="warn" ><mat-icon>close</mat-icon></button>
+    </mat-card-header>
+    <mat-card-content>
+      {{task.description}}
+    </mat-card-content>
+  </mat-card>
+</div>
+<ng-template #empty >
+  <h3>Task not found</h3>
+</ng-template>
