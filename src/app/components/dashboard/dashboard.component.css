@@ -1,0 +1,15 @@
+.container-list-filter {
+  display: flex;
+  height: 91%;
+}
+
+.left-filter {
+  flex: 0.5;
+  align-items: center;
+  background: #673ab7;
+}
+
+.right-list {
+  flex: 1.5;
+  
+}

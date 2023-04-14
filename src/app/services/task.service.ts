@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IData } from '../interfaces/IData';
-import { ITask } from '../interfaces/ITask';
+import { ITask, TaskForm } from '../interfaces/ITask';
 
 import axios from './axios/axios.config';
 
@@ -13,20 +13,20 @@ export class TaskService {
 
   async getTasks(): Promise<ITask[]> {
      const response = await axios.get('/task');
-     return response.data;
+     return response.data.tasks;
   }
 
   async getTask(id: string): Promise<ITask> {
     const response =  await axios.get(`/task/${id}`);
-    return response.data;
+    return response.data.task;
   }
 
-  async createTask(task: ITask): Promise<IData> {
+  async createTask(task: TaskForm): Promise<any> {
      const response = await axios.post('/task', task);
      return response.data;
   }
 
-  async updateTask(id: string, task: ITask): Promise<IData> {
+  async updateTask(id: string, task: TaskForm): Promise<IData> {
     const response = await axios.put(`/task/${id}`, task);
     return response.data;
   }

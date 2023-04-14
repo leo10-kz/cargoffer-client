@@ -1,0 +1,19 @@
+.card-container {
+  display: flex;
+  max-width: 95%;
+  height: 20%;
+  align-items: center;
+  margin-left: 8px;
+  margin-top: 10px;
+}
+
+.card-container button {
+display: flex;
+margin-bottom: 5px;
+}
+
+.form-container {
+  margin-top: auto;
+}
+
+

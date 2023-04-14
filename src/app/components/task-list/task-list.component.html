@@ -1,1 +1,47 @@
-<p>task-list works!</p>
+<div cdkDropListGroup >
+  <div class="example-container">
+    <h2>To do</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="taskList"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of taskList" cdkDrag>{{item.name}}
+        <div class="box">
+          <button mat-icon-button color="warn" (click)="deleteTask(item._id)"><mat-icon >delete</mat-icon></button>
+          <button mat-icon-button color="primary" [routerLink]="['edit/',item._id]"><mat-icon >edit</mat-icon></button>
+       </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>In Progres</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="taskProgress"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of taskProgress" cdkDrag>{{item.name}}
+        <button mat-icon-button color="warn" (click)="deleteTask(item._id)"><mat-icon >delete</mat-icon></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Done</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="taskDone"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of taskDone" cdkDrag>{{item.name}}
+        <button mat-icon-button color="warn" (click)="deleteTask(item._id)"><mat-icon >delete</mat-icon></button>
+      </div>
+    </div>
+  </div>
+</div>
+

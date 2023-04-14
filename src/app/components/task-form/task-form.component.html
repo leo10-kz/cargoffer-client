@@ -4,28 +4,28 @@
   </div>
   <div class="right">
     <h1>Create your task</h1>
-    <form class="form">
+    <form class="form" (submit)="edit? updateTask():createTask()">
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Name</mat-label>
-        <input matInput type="text" />
+        <input matInput type="text" name="name" [(ngModel)]="task.name"/>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Description</mat-label>
-        <textarea matInput></textarea>
+        <textarea matInput type="text" name="description" [(ngModel)]="task.description"></textarea>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Category</mat-label>
-        <input matInput type="text" />
+        <input matInput type="text" name="category" [(ngModel)]="task.category"/>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Expiration Date</mat-label>
-        <input matInput type="date" />
+        <input matInput type="date" name="expirationDate" [(ngModel)]="task.expitarionDate"/>
       </mat-form-field>
 
-      <button mat-fab extended color="primary">
+      <button mat-raised-button  color="primary" type="submit">
         Create
         <mat-icon>send</mat-icon>
       </button>
